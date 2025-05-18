@@ -21,7 +21,11 @@ const Home = () => {
 
     if (!granted) {
       alert("Permissão de câmera negada");
+
       return;
+    }
+    if (!hasCameraPermission) {
+      await requestCameraPermission();
     }
     try {
       setModalVisible(true);
